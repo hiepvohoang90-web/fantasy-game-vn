@@ -13,7 +13,7 @@
         .nav-tabs { display: flex; gap: 10px; align-items: center; }
         .nav-tabs button { background-color: transparent; color: #45f3ff; border: 1px solid #45f3ff; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; }
         .nav-tabs button.active { background-color: #45f3ff; color: #0b0c10; box-shadow: 0 0 15px #45f3ff; }
-        .ticket-counter { background: #141d26; border: 1px solid #ffa502; color: #ffa502; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; box-shadow: 0 0 8px rgba(255, 165, 2, 0.3); cursor: pointer; }
+        .ticket-counter { background: #141d26; border: 1px solid #ffa502; color: #ffa502; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; box-shadow: 0 0 8px rgba(255, 165, 2, 0.3); pointer-events: auto; cursor: pointer; }
         .admin-notice-board { max-width: 1100px; margin: 25px auto 0 auto; padding: 15px 20px; background-color: #1f2833; border-left: 5px solid #ffa502; border-radius: 8px; }
         .admin-notice-board h3 { margin: 0 0 8px 0; color: #ffa502; font-size: 16px; }
         .admin-notice-board p { margin: 0; font-size: 14px; color: #ffffff; line-height: 1.5; font-weight: 500; }
@@ -76,7 +76,7 @@
 </head>
 <body>
     <iframe id="lofiPlayer" style="display:none" src="" allow="autoplay"></iframe>
-    <div class="marquee-container"><marquee scrollamount="5">vui vẻ hòa đồng gõ truyện thiết kế búp bê Chibi Anime kute với 20 bộ truyện dài tiếng Việt cực hay nha mấy ní oii</marquee></div>
+    <div class="marquee-container"><marquee scrollamount="5">vui vẻ hòa đồng gõ truyện thiết kế búp bê Chibi Anime kute với 5 bộ truyện tiếng Việt siêu mượt nha mấy ní oii</marquee></div>
     <div class="admin-alert">🛠️ Wed lỗi báo admin thiện q12</div>
     <nav>
         <div class="logo-admin" onclick="activateAdminMode()">🌌 ADMIN THIỆN Q12 (Bấm nhận vô hạn phiếu)</div>
@@ -89,9 +89,8 @@
     </nav>
     <div class="admin-notice-board">
         <h3>📢 BẢNG THÔNG BÁO TỪ ADMIN TỐI CAO THIỆN Q12</h3>
-        <p id="displayNotice">Chào mừng mấy ní đã ghé chơi app viết truyện! Hệ thống hiện đã cập nhật 20 bộ truyện tiếng Việt siêu dài đủ các thể loại. Cứ thoải mái đọc truyện và gõ phím sáng tác không lo cúp điện nhé!</p>
+        <p id="displayNotice">Chào mừng mấy ní đã ghé chơi app viết truyện! Hệ thống hiện đã cập nhật 5 bộ truyện tiếng Việt siêu dài chọn lọc cực mượt. Cứ thoải mái đọc truyện và gõ phím sáng tác không lo cúp điện nhé!</p>
     </div>
     <div class="admin-control-panel">
         <h4>🛠️ BẢNG ĐIỀU KHIỂN BÍ MẬT CỦA ADMIN THIỆN Q12</h4>
         <div id="lockZone">
-            <label style="color: #c5c6c7; font-size: 13px;">Nhập mật khẩu Admin để sửa bảng thông báo hiển thị trên web:</label>
