@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THIỆN Q12 - VƯƠNG QUỐC TRUYỆN & THỜI TRANG</title>
     <style>
-        /* Đã xóa sạch sao băng, dùng nền đen chill siêu nhẹ chống đơ máy */
         body { background-color: #0b0c10; color: #c5c6c7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         .marquee-container { background: linear-gradient(90deg, #1f2833, #ff4757, #1f2833); color: #ffffff; padding: 10px 0; font-weight: bold; font-size: 15px; text-align: center; }
         .admin-alert { position: fixed; bottom: 20px; right: 20px; background-color: #ff4757; color: white; padding: 12px 20px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); z-index: 1000; }
@@ -82,16 +81,17 @@
     <nav>
         <div class="logo-admin" onclick="activateAdminMode()">🌌 ADMIN THIỆN Q12 (Bấm nhận vô hạn phiếu)</div>
         <div class="nav-tabs">
-            <button class="active" onclick="switchTab('readerTab')">📚 KHO TRUYỆN</button>
-            <button onclick="switchTab('shopTab')">👗 SHOP NHÂN VẬT</button>
-            <button onclick="switchTab('writerTab')">✍️ GÓC SÁNG TÁC</button>
+            <button class="active" onclick="switchTab('readerTab', this)">📚 KHO TRUYỆN</button>
+            <button onclick="switchTab('shopTab', this)">👗 SHOP NHÂN VẬT</button>
+            <button onclick="switchTab('writerTab', this)">✍️ GÓC SÁNG TÁC</button>
             <div class="ticket-counter" id="ticketDisplay">🎫 Phiếu: 5</div>
         </div>
     </nav>
     <div class="admin-notice-board">
-        <h3 style="color: #ffa502;">📢 BẢNG THÔNG BÁO TỪ ADMIN TỐI CAO THIỆN Q12</h3>
+        <h3>📢 BẢNG THÔNG BÁO TỪ ADMIN TỐI CAO THIỆN Q12</h3>
         <p id="displayNotice">Chào mừng mấy ní đã ghé chơi app viết truyện! Hệ thống hiện đã cập nhật 20 bộ truyện tiếng Việt siêu dài đủ các thể loại. Cứ thoải mái đọc truyện và gõ phím sáng tác không lo cúp điện nhé!</p>
     </div>
     <div class="admin-control-panel">
         <h4>🛠️ BẢNG ĐIỀU KHIỂN BÍ MẬT CỦA ADMIN THIỆN Q12</h4>
         <div id="lockZone">
+            <label style="color: #c5c6c7; font-size: 13px;">Nhập mật khẩu Admin để sửa bảng thông báo hiển thị trên web:</label>
