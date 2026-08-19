@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIỆN Q12 - SẢN XUẤT VÀ ĐỌC TRUYỆN ONLINE</title>
+    <style>
+        body { background-color: #0b0c10; color: #c5c6c7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        .marquee-container { background: linear-gradient(90deg, #1f2833, #ff4757, #1f2833); color: #ffffff; padding: 10px 0; font-weight: bold; font-size: 15px; text-align: center; }
+        .admin-alert { position: fixed; bottom: 20px; right: 20px; background-color: #ff4757; color: white; padding: 12px 20px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: #1f2833; border-bottom: 1px solid #45f3ff; }
+        .logo { font-size: 22px; font-weight: bold; color: #45f3ff; text-shadow: 0 0 8px rgba(69, 243, 255, 0.6); }
+        .auth-buttons button { background-color: transparent; color: #45f3ff; border: 1px solid #45f3ff; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .auth-buttons button:hover { background-color: #45f3ff; color: #0b0c10; }
+        .admin-notice-board { max-width: 850px; margin: 25px auto 0 auto; padding: 15px 20px; background-color: #1f2833; border-left: 5px solid #45f3ff; border-radius: 8px; }
+        .admin-notice-board h3 { margin: 0 0 8px 0; color: #45f3ff; font-size: 16px; }
+        .admin-notice-board p { margin: 0; font-size: 14px; color: #c5c6c7; line-height: 1.5; }
+        .main-container { max-width: 850px; margin: 30px auto 40px auto; padding: 30px; background-color: #1f2833; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+        h2 { color: #45f3ff; text-align: center; margin-top: 0; font-size: 22px; }
+        .input-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 10px; font-weight: bold; color: #66fcf1; }
+        input[type="text"], textarea, select { width: 100%; padding: 14px; background-color: #0b0c10; border: 1px solid #45f3ff; border-radius: 6px; color: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; }
+        input[type="text"]:focus, textarea:focus, select:focus { border-color: #ff4757; }
+        textarea { height: 280px; resize: vertical; line-height: 1.6; }
+        .word-counter { text-align: right; font-size: 14px; color: #ffa502; margin-top: 5px; font-weight: bold; }
+        .save-status { font-size: 14px; color: #2ed573; margin-top: 15px; margin-bottom: 15px; font-weight: bold; display: none; }
+        .cover-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; margin-top: 10px; }
+        .cover-item { border: 3px solid transparent; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; background-color: #0b0c10; }
+        .cover-item img { width: 100%; height: 160px; object-fit: cover; display: block; opacity: 0.6; transition: 0.2s; }
+        .cover-item.selected { border-color: #2ed573; box-shadow: 0 0 10px rgba(46, 213, 115, 0.5); }
+        .cover-item.selected img { opacity: 1; }
+        .cover-label { position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.8); width: 100%; text-align: center; font-size: 12px; padding: 5px 0; color: #fff; font-weight: bold; }
+        .button-group { display: flex; gap: 15px; margin-top: 10px; }
+        button.btn-action { color: white; border: none; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.2s; flex: 1; }
+        button.btn-submit { background: linear-gradient(90deg, #ff4757, #ff6b81); }
+        button.btn-download { background: linear-gradient(90deg, #1e90ff, #3742fa); }
+        button.btn-action:hover { transform: translateY(-1px); opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="marquee-container"><marquee scrollamount="5">vui vẻ hòa đồng viết truyện nha mấy ní</marquee></div>
+    <div class="admin-alert">🛠️ Wed lỗi báo admin thiện q12</div>
+    <nav>
+        <div class="logo">🌌 THIỆN Q12 - SẢN XUẤT VÀ ĐỌC TRUYỆN ONLINE</div>
+        <div class="auth-buttons">
+            <button onclick="alert('Chào ní! Tính năng Đăng Ký đang được admin Thiện Q12 phát triển nhé!')">Đăng Ký</button>
+            <button onclick="alert('Chào ní! Tính năng Đăng Nhập đang được admin Thiện Q12 phát triển nhé!')">Đăng Nhập</button>
+        </div>
+    </nav>
+    <div class="admin-notice-board">
+        <h3>📢 BẢNG THÔNG BÁO TỪ ADMIN THIỆN Q12</h3>
+        <p>Chào mừng mấy ní đã ghé chơi app viết truyện và đọc truyện của tớ! Hệ thống hiện đã cập nhật tính năng tự động lưu từng giây cực xịn. Cứ thoải mái gõ phím sáng tác không lo cúp điện nhé. Chúc mấy ní viết được nhiều bộ truyện thật đỉnh!</p>
+    </div>
+    <div class="main-container">
+        <h2>📝 PHẦN DÀNH CHO TÁC GIẢ VIẾT & ĐỌC TRUYỆN</h2>
+        <div class="input-group">
+            <label for="penName">Bút danh của bạn:</label>
+            <input type="text" id="penName" placeholder="Nhập tên tác giả của bạn...">
+        </div>
+        <div class="input-group">
+            <label for="storyTitle">Tên truyện / Tên tiểu thuyết:</label>
+            <input type="text" id="storyTitle" placeholder="Nhập tên truyện của bạn...">
+        </div>
+        <div class="input-group">
+            <label for="storyGenre">Thể loại truyện:</label>
+            <select id="storyGenre">
+                <option value="anime">Anime</option>
+                <option value="kinhdi">Kinh dị</option>
+                <option value="trinhtham">Trinh thám / Thám tử</option>
+                <option value="fantasy">Fantasy (Kỳ ảo)</option>
+                <option value="tinhyeu">Tình yêu / Lãng mạn</option>
+                <option value="xuyenkhong">Xuyên không</option>
+                <option value="tanthe">Tận thế</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Chọn ảnh bìa có sẵn cho truyện của bạn:</label>
+            <div class="cover-gallery">
+                <div class="cover-item selected" onclick="selectCover(this, 'anime')"><img src="https://unsplash.com" alt="Anime"><div class="cover-label">Anime</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'kinhdi')"><img src="https://unsplash.com" alt="Kinh dị"><div class="cover-label">Kinh Dị</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'trinhtham')"><img src="https://unsplash.com" alt="Trinh thám"><div class="cover-label">Trinh Thám</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'fantasy')"><img src="https://unsplash.com" alt="Fantasy"><div class="cover-label">Fantasy</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'tinhyeu')"><img src="https://unsplash.com" alt="Tình yêu"><div class="cover-label">Tình Yêu</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'xuyenkhong')"><img src="https://unsplash.com" alt="Xuyên không"><div class="cover-label">Xuyên Không</div></div>
+                <div class="cover-item" onclick="selectCover(this, 'tanthe')"><img src="https://unsplash.com" alt="Tận thế"><div class="cover-label">Tận Thế</div></div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="storyContent">Nội dung truyện (Gõ bàn phím vào đây):</label>
+            <div class="word-counter" id="wordCount">📊 Số chữ hiện tại: 0 chữ</div>
+            <textarea id="storyContent" placeholder="Bắt đầu gõ phím viết truyện tại đây... Đang gõ đến đâu hệ thống tự lưu đến đó để chống cúp điện nhé!"></textarea>
+        </div>
+        <div class="save-status" id="saveStatus">✅ Đã tự động lưu bản nháp an toàn chống cúp điện!</div>
+        <div class="button-group">
+            <button class="btn-action btn-download" onclick="downloadStoryTxt()">💾 TẢI FILE TRUYỆN (.TXT)</button>
+            <button class="btn-action btn-submit" onclick="publishStory()">🚀 ĐĂNG TÁC PHẨM LÊN WEB</button>
+        </div>
+    </div>
+    <script>
+        let selectedCover = "anime";
+        function selectCover(element, genre) {
+            document.querySelectorAll('.cover-item').forEach(item => item.classList.remove('selected'));
+            element.classList.add('selected'); selectedCover = genre; localStorage.setItem('draft_selectedCover', genre);
+        }
+        const fields = ['penName', 'storyTitle', 'storyGenre', 'storyContent'];
+        fields.forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                localStorage.setItem('draft_' + id, document.getElementById(id).value);
+                if(id === 'storyContent') { updateWordCount(); }
+                const now = new Date(); const timeStr = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0') + ':' + now.getSeconds().toString().padStart(2, '0');
+                const status = document.getElementById('saveStatus'); status.style.display = 'block'; status.innerText = `✅ Đang viết đến đâu lưu đến đó! Bản nháp đã được lưu an toàn lúc: ${timeStr}`;
+            });
+        });
+        function updateWordCount() {
+            const text = document.getElementById('storyContent').value.trim(); const count = text === '' ? 0 : text.split(/\s+/).length;
+            document.getElementById('wordCount').innerText = `📊 Số chữ hiện tại: ${count} chữ`;
+        }
+        function downloadStoryTxt() {
