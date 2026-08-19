@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THIỆN Q12 - VƯƠNG QUỐC TRUYỆN & THỜI TRANG</title>
     <style>
-        body { background-color: #0b0c10; color: #c5c6c7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; overflow-x: hidden; position: relative; }
-        .shooting-stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
-        .star { position: absolute; top: -50px; width: 2px; height: 2px; background: #fff; opacity: 0; animation: shoot 4s linear infinite; }
-        .star::before { content: ''; position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 1px; background: linear-gradient(90deg, #fff, transparent); }
-        .star:nth-child(1) { left: 30%; animation-delay: 0s; }
-        .star:nth-child(2) { left: 60%; animation-delay: 1.5s; animation-duration: 5s; }
-        .star:nth-child(3) { left: 80%; animation-delay: 3s; animation-duration: 6s; }
-        @keyframes shoot { 0% { transform: translate(0, 0) rotate(-45deg); opacity: 1; } 20% { transform: translate(-300px, 300px) rotate(-45deg); opacity: 0; } 100% { transform: translate(-300px, 300px) rotate(-45deg); opacity: 0; } }
+        /* Đã xóa sạch sao băng, dùng nền đen chill siêu nhẹ chống đơ máy */
+        body { background-color: #0b0c10; color: #c5c6c7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         .marquee-container { background: linear-gradient(90deg, #1f2833, #ff4757, #1f2833); color: #ffffff; padding: 10px 0; font-weight: bold; font-size: 15px; text-align: center; }
         .admin-alert { position: fixed; bottom: 20px; right: 20px; background-color: #ff4757; color: white; padding: 12px 20px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); z-index: 1000; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: #1f2833; border-bottom: 1px solid #45f3ff; }
@@ -34,13 +28,12 @@
         .gender-select-box { position: absolute; top: 10px; left: 10px; z-index: 30; display: flex; gap: 5px; }
         .gender-btn { background: #141d26; border: 1px solid #45f3ff; color: #45f3ff; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; }
         .gender-btn.active { background: #45f3ff; color: #0b0c10; }
-        .layer-wings { position: absolute; font-size: 140px; z-index: 2; top: 60px; opacity: 0.8; animation: wingWave 3s ease-in-out infinite; }
+        .layer-wings { position: absolute; font-size: 140px; z-index: 2; top: 60px; opacity: 0.8; }
         .layer-base { position: absolute; font-size: 90px; z-index: 5; top: 130px; color: #ffdbac; }
-        .layer-hair { position: absolute; font-size: 100px; z-index: 10; top: 75px; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .layer-hair { position: absolute; font-size: 100px; z-index: 10; top: 75px; }
         .layer-face { position: absolute; font-size: 26px; z-index: 12; top: 142px; font-family: monospace; font-weight: bold; color: #ffffff; }
         .layer-clothes { position: absolute; font-size: 85px; z-index: 15; top: 175px; }
         .layer-weapon { position: absolute; font-size: 55px; z-index: 20; right: 25px; top: 160px; transform: rotate(15deg); }
-        @keyframes wingWave { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
         .shop-shelf-box { display: flex; flex-direction: column; gap: 15px; }
         .shop-tabs { display: flex; gap: 5px; overflow-x: auto; padding-bottom: 5px; border-bottom: 1px solid #45f3ff; }
         .shop-tab-btn { background: none; border: none; color: #c5c6c7; font-size: 12px; font-weight: bold; cursor: pointer; padding: 5px 10px; white-space: nowrap; }
@@ -83,5 +76,22 @@
     </style>
 </head>
 <body>
-    <div class="shooting-stars"><div class="star"></div><div class="star"></div><div class="star"></div></div>
     <iframe id="lofiPlayer" style="display:none" src="" allow="autoplay"></iframe>
+    <div class="marquee-container"><marquee scrollamount="5">vui vẻ hòa đồng gõ truyện thiết kế búp bê Chibi Anime kute với 20 bộ truyện dài tiếng Việt cực hay nha mấy ní oii</marquee></div>
+    <div class="admin-alert">🛠️ Wed lỗi báo admin thiện q12</div>
+    <nav>
+        <div class="logo-admin" onclick="activateAdminMode()">🌌 ADMIN THIỆN Q12 (Bấm nhận vô hạn phiếu)</div>
+        <div class="nav-tabs">
+            <button class="active" onclick="switchTab('readerTab')">📚 KHO TRUYỆN</button>
+            <button onclick="switchTab('shopTab')">👗 SHOP NHÂN VẬT</button>
+            <button onclick="switchTab('writerTab')">✍️ GÓC SÁNG TÁC</button>
+            <div class="ticket-counter" id="ticketDisplay">🎫 Phiếu: 5</div>
+        </div>
+    </nav>
+    <div class="admin-notice-board">
+        <h3 style="color: #ffa502;">📢 BẢNG THÔNG BÁO TỪ ADMIN TỐI CAO THIỆN Q12</h3>
+        <p id="displayNotice">Chào mừng mấy ní đã ghé chơi app viết truyện! Hệ thống hiện đã cập nhật 20 bộ truyện tiếng Việt siêu dài đủ các thể loại. Cứ thoải mái đọc truyện và gõ phím sáng tác không lo cúp điện nhé!</p>
+    </div>
+    <div class="admin-control-panel">
+        <h4>🛠️ BẢNG ĐIỀU KHIỂN BÍ MẬT CỦA ADMIN THIỆN Q12</h4>
+        <div id="lockZone">
