@@ -1,125 +1,1450 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THIỆN Q12 - VƯƠNG QUỐC TRUYỆN & SÁNG TÁC</title>
-    <style>
-        body { background-color: #0b0c10; color: #c5c6c7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
-        .marquee-container { background: linear-gradient(90deg, #1f2833, #ff4757, #1f2833); color: #ffffff; padding: 10px 0; font-weight: bold; font-size: 15px; text-align: center; }
-        .admin-alert { position: fixed; bottom: 20px; right: 20px; background-color: #ff4757; color: white; padding: 12px 20px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: #1f2833; border-bottom: 1px solid #45f3ff; }
-        .logo-admin { font-size: 22px; font-weight: bold; color: #ffa502; text-shadow: 0 0 10px #ffa502, 0 0 20px #ffa502; cursor: pointer; }
-        .nav-tabs { display: flex; gap: 10px; align-items: center; }
-        .nav-tabs button { background-color: transparent; color: #45f3ff; border: 1px solid #45f3ff; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; position: relative; z-index: 999; }
-        .nav-tabs button.active { background-color: #45f3ff; color: #0b0c10; box-shadow: 0 0 15px #45f3ff; }
-        
-        .layout-main { max-width: 1100px; margin: 25px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1.5fr; gap: 20px; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; max-height: 550px; overflow-y: auto; padding-right: 5px; }
-        .story-card { background-color: #1f2833; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; cursor: pointer; position: relative; z-index: 100; }
-        .story-card:hover { transform: translateY(-3px); }
-        .story-card img { width: 100%; height: 160px; object-fit: cover; }
-        .story-info { padding: 10px; }
-        .story-title { font-weight: bold; color: #ffffff; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .story-author { font-size: 11px; color: #a8dadc; }
-        .story-badge { display: inline-block; background-color: #ff4757; color: white; font-size: 10px; padding: 1px 5px; border-radius: 30px; font-weight: bold; }
-        
-        .sidebar { display: flex; flex-direction: column; gap: 20px; }
-        .sidebar-box { background-color: #1f2833; border-radius: 8px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .sidebar-box h4 { margin-top: 0; color: #45f3ff; border-bottom: 1px solid #0b0c10; padding-bottom: 8px; font-size: 15px; }
-        .leaderboard-item { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px; border-bottom: 1px dashed rgba(255,255,255,0.05); }
-        .leaderboard-name { color: #ffffff; font-weight: bold; }
-        .leaderboard-count { color: #ffa502; }
-        
-        .chat-input-group { display: flex; gap: 8px; margin-top: 10px; }
-        .chat-box-display { height: 130px; background-color: #0b0c10; border-radius: 4px; padding: 8px; overflow-y: auto; font-size: 12px; }
-        .chat-msg { margin-bottom: 6px; color: #c5c6c7; }
-        .chat-admin-reply { color: #ffa502; font-weight: bold; }
-        
-        .main-container { background-color: #1f2833; padding: 25px; border-radius: 12px; }
-        .input-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #66fcf1; font-size: 14px; }
-        input[type="text"], textarea, select { width: 100%; padding: 12px; background-color: #0b0c10; border: 1px solid #45f3ff; border-radius: 6px; color: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; }
-        textarea { height: 220px; resize: vertical; }
-        .button-group { display: flex; gap: 15px; margin-top: 15px; }
-        button.btn-action { color: white; border: none; padding: 12px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; flex: 1; }
-        button.btn-submit { background: linear-gradient(90deg, #ff4757, #ff6b81); }
-        button.btn-download { background: linear-gradient(90deg, #1e90ff, #3742fa); }
-        
-        .reader-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; padding: 30px 15px; box-sizing: border-box; }
-        .reader-content { max-width: 700px; margin: 0 auto; background-color: #1f2833; padding: 25px; border-radius: 12px; border: 1px solid #45f3ff; position: relative; }
-        .btn-close { background-color: #ff4757; color: white; border: none; padding: 8px 16px; font-weight: bold; border-radius: 5px; cursor: pointer; position: absolute; top: 20px; right: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thế Giới Phiêu Truyện</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#111;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+#game{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#244d27;
+}
+
+#world{
+    position:absolute;
+    width:1800px;
+    height:1100px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    transition:transform .08s linear;
+}
+
+#map{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,#4b8b3d 0 110px,transparent 111px),
+        radial-gradient(circle at 80% 20%,#4b8b3d 0 130px,transparent 131px),
+        radial-gradient(circle at 45% 75%,#4b8b3d 0 150px,transparent 151px),
+        radial-gradient(circle at 85% 80%,#32682f 0 100px,transparent 101px),
+        #397234;
+}
+
+/* cây */
+.tree{
+    position:absolute;
+    width:55px;
+    height:75px;
+    z-index:3;
+    font-size:48px;
+}
+
+/* đường */
+.road{
+    position:absolute;
+    background:#9b865b;
+    border:2px solid #806c48;
+    z-index:1;
+}
+
+.road.h{
+    width:1800px;
+    height:70px;
+    left:0;
+    top:515px;
+}
+
+.road.v{
+    width:70px;
+    height:1100px;
+    left:865px;
+    top:0;
+}
+
+.road.diagonal{
+    width:1250px;
+    height:55px;
+    left:280px;
+    top:245px;
+    transform:rotate(25deg);
+}
+
+/* làng */
+.village{
+    position:absolute;
+    width:260px;
+    height:180px;
+    border:5px solid #5b371f;
+    border-radius:30px;
+    background:#78a94a;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:23px;
+    font-weight:bold;
+    text-shadow:2px 2px 4px #000;
+    box-shadow:0 8px 15px rgba(0,0,0,.3);
+}
+
+.village span{
+    display:block;
+}
+
+.village .house{
+    position:absolute;
+    font-size:45px;
+}
+
+.village .h1{left:18px;top:15px}
+.village .h2{right:18px;bottom:10px}
+
+#village1{left:100px;top:120px}
+#village2{right:100px;top:120px}
+#village3{left:770px;bottom:65px}
+
+/* vòng hồi sinh */
+.spawn{
+    position:absolute;
+    width:100px;
+    height:100px;
+    border:4px solid #fff;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    z-index:4;
+}
+
+/* player */
+#player{
+    position:absolute;
+    width:48px;
+    height:58px;
+    z-index:50;
+    border:3px solid white;
+    border-radius:50% 50% 35% 35%;
+    background:#2980b9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    box-shadow:0 3px 8px #000;
+}
+
+/* quái */
+.enemy{
+    position:absolute;
+    width:52px;
+    height:52px;
+    z-index:20;
+    border-radius:50%;
+    border:3px solid #ff7777;
+    background:#8e2929;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    box-shadow:0 3px 8px #000;
+    transition:left .12s linear,top .12s linear;
+}
+
+.enemy .enemyHp{
+    position:absolute;
+    top:-12px;
+    left:0;
+    width:100%;
+    height:6px;
+    background:#222;
+    border-radius:5px;
+    overflow:hidden;
+}
+
+.enemy .enemyHp i{
+    display:block;
+    width:100%;
+    height:100%;
+    background:#e74c3c;
+}
+
+/* damage */
+.damage{
+    position:absolute;
+    z-index:100;
+    color:#ffec40;
+    font-size:22px;
+    font-weight:bold;
+    pointer-events:none;
+    animation:damageFloat .8s forwards;
+}
+
+@keyframes damageFloat{
+    from{opacity:1;transform:translateY(0)}
+    to{opacity:0;transform:translateY(-45px)}
+}
+
+/* hiệu ứng đánh */
+.attackEffect{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border:5px solid #fff;
+    border-radius:50%;
+    z-index:80;
+    pointer-events:none;
+    animation:attackAnim .25s forwards;
+}
+
+@keyframes attackAnim{
+    from{opacity:1;transform:scale(.3)}
+    to{opacity:0;transform:scale(1.3)}
+}
+
+/* HUD */
+#hud{
+    position:fixed;
+    left:12px;
+    top:12px;
+    width:285px;
+    padding:14px;
+    background:rgba(0,0,0,.78);
+    border:2px solid #777;
+    border-radius:14px;
+    z-index:500;
+}
+
+#hudTitle{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.bar{
+    width:100%;
+    height:17px;
+    margin:5px 0 9px;
+    background:#333;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#hpBar{
+    height:100%;
+    width:100%;
+    background:#e53935;
+}
+
+#expBar{
+    height:100%;
+    width:0%;
+    background:#27ae60;
+}
+
+#timeBox{
+    position:fixed;
+    right:12px;
+    top:12px;
+    padding:12px 18px;
+    background:rgba(0,0,0,.78);
+    border-radius:14px;
+    z-index:500;
+    font-size:18px;
+    text-align:center;
+}
+
+/* skill */
+#skills{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:500;
+}
+
+.skill{
+    width:68px;
+    height:68px;
+    background:rgba(0,0,0,.85);
+    border:3px solid #aaa;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    position:relative;
+}
+
+.skill small{
+    font-size:10px;
+}
+
+.skill.cooldown{
+    opacity:.45;
+}
+
+.skill .cd{
+    position:absolute;
+    bottom:3px;
+    font-size:11px;
+    color:#ffdd55;
+}
+
+/* attack */
+#attack{
+    position:fixed;
+    right:25px;
+    bottom:28px;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    border:4px solid white;
+    background:#8e2929;
+    color:white;
+    font-size:21px;
+    font-weight:bold;
+    z-index:500;
+    cursor:pointer;
+}
+
+#attack:active{
+    transform:scale(.92);
+}
+
+/* joystick */
+#controls{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    z-index:500;
+}
+
+.moveBtn{
+    width:58px;
+    height:58px;
+    margin:3px;
+    border:2px solid white;
+    border-radius:12px;
+    background:rgba(0,0,0,.7);
+    color:white;
+    font-size:25px;
+    touch-action:none;
+}
+
+#message{
+    position:fixed;
+    top:95px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,.85);
+    padding:12px 25px;
+    border-radius:12px;
+    z-index:1000;
+    display:none;
+    text-align:center;
+}
+
+/* chết */
+#deathScreen{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    z-index:2000;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+#deathScreen h1{
+    color:#e74c3c;
+    font-size:48px;
+}
+
+#respawn{
+    padding:15px 35px;
+    border:0;
+    border-radius:10px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* mini map */
+#miniMap{
+    position:fixed;
+    right:12px;
+    top:95px;
+    width:180px;
+    height:110px;
+    background:rgba(20,70,25,.85);
+    border:2px solid white;
+    z-index:500;
+    border-radius:8px;
+}
+
+.miniVillage{
+    position:absolute;
+    width:20px;
+    height:15px;
+    background:#f1c40f;
+    border-radius:3px;
+}
+
+#mv1{left:12px;top:12px}
+#mv2{right:12px;top:12px}
+#mv3{left:80px;bottom:10px}
+
+#miniPlayer{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#fff;
+    border-radius:50%;
+}
+
+/* mobile */
+@media(max-width:700px){
+    #hud{
+        width:210px;
+        font-size:12px;
+    }
+
+    #timeBox{
+        font-size:13px;
+        padding:8px 12px;
+    }
+
+    #skills{
+        bottom:10px;
+        left:50%;
+    }
+
+    .skill{
+        width:52px;
+        height:52px;
+        font-size:18px;
+    }
+
+    #attack{
+        width:82px;
+        height:82px;
+        right:12px;
+        bottom:95px;
+        font-size:16px;
+    }
+
+    #miniMap{
+        display:none;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="marquee-container"><marquee scrollamount="5">Chào mừng đến với Vương Quốc Truyện Thiện Q12 - Nơi giao lưu gõ phím viết truyện online siêu mượt nha mấy ní oii!</marquee></div>
-    <div class="admin-alert">🛠️ Web lỗi báo admin thiện q12</div>
-    
-    <nav>
-        <div class="logo-admin">🌌 THIỆN Q12</div>
-        <div class="nav-tabs">
-            <button class="active" id="tab-readerTab" onclick="switchTab('readerTab', this)">📚 KHO TRUYỆN</button>
-            <button id="tab-writerTab" onclick="switchTab('writerTab', this)">✍️ GÓC SÁNG TÁC</button>
-        </div>
-    </nav>
 
-    <div class="layout-main">
-        <div>
-            <div id="readerTab" class="tab-content active">
-                <h2 style="font-size:18px; color: #45f3ff;">🎨 KHO 5 TRUYỆN ONLINE TIẾNG VIỆT SIÊU MƯỢT</h2>
-                <div class="grid-gallery" id="storyShelf"></div>
+<div id="game">
+
+    <div id="world">
+
+        <div id="map">
+
+            <!-- đường -->
+            <div class="road h"></div>
+            <div class="road v"></div>
+            <div class="road diagonal"></div>
+
+            <!-- cây -->
+            <div class="tree" style="left:300px;top:330px">🌳</div>
+            <div class="tree" style="left:420px;top:600px">🌳</div>
+            <div class="tree" style="left:580px;top:180px">🌳</div>
+            <div class="tree" style="left:1050px;top:180px">🌳</div>
+            <div class="tree" style="left:1250px;top:500px">🌳</div>
+            <div class="tree" style="left:1500px;top:600px">🌳</div>
+            <div class="tree" style="left:150px;top:750px">🌳</div>
+            <div class="tree" style="left:600px;top:900px">🌳</div>
+            <div class="tree" style="left:1200px;top:850px">🌳</div>
+
+            <!-- làng -->
+            <div id="village1" class="village">
+                <div>
+                    <span>🏠 LÀNG BÌNH MINH</span>
+                    <small>Điểm hồi sinh</small>
+                </div>
+                <div class="house h1">🏠</div>
+                <div class="house h2">🏠</div>
             </div>
 
-            <div id="writerTab" class="tab-content">
-                <div class="main-container">
-                    <h2 style="color: #45f3ff;">✍️ ĐĂNG TRUYỆN MỚI LÊN THẲNG TRANG CHỦ</h2>
-                    <div class="input-group"><label>Bút danh / Tên của bạn:</label><input type="text" id="penName" placeholder="Gõ tên của bạn..."></div>
-                    <div class="input-group"><label>Tên truyện:</label><input type="text" id="storyTitle" placeholder="Gõ tên tác phẩm..."></div>
-                    <div class="input-group">
-                        <label>Chọn thể loại ảnh bìa:</label>
-                        <select id="storyGenre">
-                            <option value="https://unsplash.com">Anime</option>
-                            <option value="https://unsplash.com">Kinh dị</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>Nội dung truyện:</label>
-                        <div id="wordCount" style="font-size: 12px; color: #ffa502; margin-bottom: 5px;">📊 Số chữ hiện tại: 0 chữ</div>
-                        <textarea id="storyContent" placeholder="Gõ phím viết truyện... Có tự động lưu từng giây chống cúp điện nhé!"></textarea>
-                    </div>
-                    <div id="saveStatus" style="display: none; color: #2ed573; font-size: 13px; font-weight: bold; margin-bottom: 10px;"></div>
-                    <div class="button-group">
-                        <button class="btn-action btn-download" onclick="downloadStoryTxt()">💾 TẢI FILE (.TXT)</button>
-                        <button class="btn-action btn-submit" onclick="publishStory()">🚀 ĐĂNG TRUYỆN LÊN TRANG CHỦ</button>
-                    </div>
+            <div id="village2" class="village">
+                <div>
+                    <span>🏠 LÀNG HOÀNG HÔN</span>
+                    <small>Điểm hồi sinh</small>
                 </div>
+                <div class="house h1">🏠</div>
+                <div class="house h2">🏠</div>
             </div>
-        </div>
 
-        <div class="sidebar">
-            <div class="sidebar-box">
-                <h4 style="color:#ffa502;">🏆 BXH TÁC GIẢ CHĂM CHỈ (PHÁT THƯỞNG MỖI NGÀY)</h4>
-                <div id="leaderboardShelf">
-                    <div class="leaderboard-item"><span class="leaderboard-name">👑 1. Thần Gõ Chữ</span><span class="leaderboard-count">9500 từ</span></div>
-                    <div class="leaderboard-item"><span class="leaderboard-name">🥈 2. Mấy Ní Vương Quốc</span><span class="leaderboard-count">3200 từ</span></div>
-                    <div class="leaderboard-item"><span class="leaderboard-name">🥉 3. Học Sinh Chăm Chỉ</span><span class="leaderboard-count">1100 từ</span></div>
+            <div id="village3" class="village">
+                <div>
+                    <span>🏠 LÀNG TRUNG TÂM</span>
+                    <small>Điểm hồi sinh</small>
                 </div>
+                <div class="house h1">🏠</div>
+                <div class="house h2">🏠</div>
             </div>
-            <div class="sidebar-box">
-                <h4>💬 GỬI TIN NHẶN ĐẾN ADMIN THIỆN Q12</h4>
-                <div class="chat-box-display" id="chatDisplay"><div class="chat-msg"><span class="chat-admin-reply">Hệ thống:</span> Nhập lời nhắn gửi trực tiếp đến Sếp Thiện Q12 nha!</div></div>
-                <div class="chat-input-group">
-                    <input type="text" id="chatInput" placeholder="Gõ lời nhắn gửi Admin..." style="padding:8px; font-size:12px;">
-                    <button onclick="sendToAdmin()" style="background:#45f3ff; color:#0b0c10; border:none; padding:8px 12px; font-weight:bold; border-radius:4px; cursor:pointer; font-size:12px;">Gửi</button>
-                </div>
-            </div>
+
+            <!-- vòng hồi sinh -->
+            <div class="spawn" style="left:180px;top:165px"></div>
+            <div class="spawn" style="left:1360px;top:165px"></div>
+            <div class="spawn" style="left:850px;top:850px"></div>
+
+            <!-- player -->
+            <div id="player">🧙</div>
+
+            <!-- quái -->
+            <div class="enemy" data-x="500" data-y="350" data-hp="100">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="650" data-y="700" data-hp="120">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="1100" data-y="400" data-hp="100">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="1300" data-y="700" data-hp="150">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="900" data-y="300" data-hp="100">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="350" data-y="800" data-hp="120">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="1450" data-y="300" data-hp="150">👹<div class="enemyHp"><i></i></div></div>
+            <div class="enemy" data-x="750" data-y="950" data-hp="120">👹<div class="enemyHp"><i></i></div></div>
+
         </div>
     </div>
+</div>
 
-    <div id="readerModal" class="reader-modal"><div class="reader-content"><button class="btn-close" onclick="closeStory()">❌ Đóng</button><h1 id="readTitle" style="color: #45f3ff; margin-top:0; font-size:22px;"></h1><p style="color: #ffa502; font-weight:bold; font-size:13px;">Tác giả: <span id="readAuthor"></span></p><hr style="border-color: #1f2833;"><div id="readBody" style="color: #ffffff; line-height:1.7; font-size:16px; white-space: pre-wrap; margin-top:15px;"></div></div></div>
+<!-- HUD -->
+<div id="hud">
+    <div id="hudTitle">🧙 Nhân vật</div>
 
-    <script>
-        function switchTab(tabId, btnElement) { 
+    <div>Level: <b id="level">1</b></div>
+
+    <div>❤️ HP: <span id="hpText">100</span>/<span id="maxHpText">100</span></div>
+
+    <div class="bar">
+        <div id="hpBar"></div>
+    </div>
+
+    <div>⭐ EXP: <span id="expText">0</span>/<span id="needText">100</span></div>
+
+    <div class="bar">
+        <div id="expBar"></div>
+    </div>
+
+    <div>💰 Vàng: <b id="gold">0</b></div>
+</div>
+
+<!-- thời gian -->
+<div id="timeBox">
+    🌞 Ngày <b id="day">1</b><br>
+    ⏰ <b id="clock">06:00</b>
+</div>
+
+<!-- minimap -->
+<div id="miniMap">
+    <div class="miniVillage" id="mv1"></div>
+    <div class="miniVillage" id="mv2"></div>
+    <div class="miniVillage" id="mv3"></div>
+    <div id="miniPlayer"></div>
+</div>
+
+<!-- skill -->
+<div id="skills">
+
+    <div class="skill" id="skill1">
+        1
+        <small>Chém</small>
+        <span class="cd"></span>
+    </div>
+
+    <div class="skill" id="skill2">
+        2
+        <small>Hỏa cầu</small>
+        <span class="cd"></span>
+    </div>
+
+    <div class="skill" id="skill3">
+        3
+        <small>Băng</small>
+        <span class="cd"></span>
+    </div>
+
+    <div class="skill" id="skill4">
+        4
+        <small>Hồi máu</small>
+        <span class="cd"></span>
+    </div>
+
+</div>
+
+<!-- đánh -->
+<button id="attack">⚔️<br>ĐÁNH</button>
+
+<!-- di chuyển -->
+<div id="controls">
+
+    <div style="text-align:center">
+        <button class="moveBtn" data-key="ArrowUp">⬆️</button>
+    </div>
+
+    <div>
+        <button class="moveBtn" data-key="ArrowLeft">⬅️</button>
+        <button class="moveBtn" data-key="ArrowDown">⬇️</button>
+        <button class="moveBtn" data-key="ArrowRight">➡️</button>
+    </div>
+
+</div>
+
+<div id="message"></div>
+
+<!-- chết -->
+<div id="deathScreen">
+
+    <h1>💀 BẠN ĐÃ CHẾT</h1>
+
+    <p>
+        Bạn mất 1 Level và sẽ hồi sinh tại làng.
+    </p>
+
+    <button id="respawn">
+        🏠 HỒI SINH
+    </button>
+
+</div>
+
+<script>
+
+/* =====================================================
+   NHÂN VẬT
+===================================================== */
+
+let level = 1;
+let hp = 100;
+let maxHp = 100;
+
+let exp = 0;
+let gold = 0;
+
+let playerX = 875;
+let playerY = 700;
+
+let speed = 5;
+
+let isDead = false;
+
+const player = document.getElementById("player");
+const world = document.getElementById("world");
+
+const mapWidth = 1800;
+const mapHeight = 1100;
+
+
+/* =====================================================
+   CẬP NHẬT PLAYER
+===================================================== */
+
+function updatePlayer(){
+
+    player.style.left = playerX + "px";
+    player.style.top = playerY + "px";
+
+    updateCamera();
+    updateMiniMap();
+}
+
+
+/* =====================================================
+   CAMERA
+===================================================== */
+
+function updateCamera(){
+
+    const screenW = window.innerWidth;
+    const screenH = window.innerHeight;
+
+    let camX = screenW / 2 - playerX;
+    let camY = screenH / 2 - playerY;
+
+    const minX = screenW - mapWidth;
+    const minY = screenH - mapHeight;
+
+    camX = Math.min(0, Math.max(minX, camX));
+    camY = Math.min(0, Math.max(minY, camY));
+
+    world.style.transform =
+        `translate(${camX}px,${camY}px)`;
+}
+
+
+/* =====================================================
+   MINIMAP
+===================================================== */
+
+function updateMiniMap(){
+
+    const mini = document.getElementById("miniPlayer");
+
+    mini.style.left =
+        (playerX / mapWidth * 170) + "px";
+
+    mini.style.top =
+        (playerY / mapHeight * 100) + "px";
+}
+
+
+/* =====================================================
+   DI CHUYỂN
+===================================================== */
+
+let keys = {};
+
+document.addEventListener("keydown",function(e){
+
+    keys[e.key] = true;
+
+    if(e.key === "1") skill1();
+    if(e.key === "2") skill2();
+    if(e.key === "3") skill3();
+    if(e.key === "4") skill4();
+
+});
+
+document.addEventListener("keyup",function(e){
+
+    keys[e.key] = false;
+
+});
+
+
+function move(){
+
+    if(isDead) return;
+
+    if(keys["ArrowUp"] || keys["w"] || keys["W"]){
+        playerY -= speed;
+    }
+
+    if(keys["ArrowDown"] || keys["s"] || keys["S"]){
+        playerY += speed;
+    }
+
+    if(keys["ArrowLeft"] || keys["a"] || keys["A"]){
+        playerX -= speed;
+    }
+
+    if(keys["ArrowRight"] || keys["d"] || keys["D"]){
+        playerX += speed;
+    }
+
+    playerX = Math.max(0,Math.min(mapWidth - 48,playerX));
+    playerY = Math.max(0,Math.min(mapHeight - 58,playerY));
+
+    updatePlayer();
+}
+
+
+setInterval(move,16);
+
+
+/* =====================================================
+   NÚT DI CHUYỂN
+===================================================== */
+
+document.querySelectorAll(".moveBtn").forEach(btn=>{
+
+    const key = btn.dataset.key;
+
+    btn.addEventListener("mousedown",()=>{
+        keys[key] = true;
+    });
+
+    btn.addEventListener("mouseup",()=>{
+        keys[key] = false;
+    });
+
+    btn.addEventListener("mouseleave",()=>{
+        keys[key] = false;
+    });
+
+    btn.addEventListener("touchstart",e=>{
+        e.preventDefault();
+        keys[key] = true;
+    });
+
+    btn.addEventListener("touchend",e=>{
+        e.preventDefault();
+        keys[key] = false;
+    });
+
+});
+
+
+/* =====================================================
+   QUÁI
+===================================================== */
+
+const enemies = document.querySelectorAll(".enemy");
+
+enemies.forEach(enemy=>{
+
+    enemy.style.left = enemy.dataset.x + "px";
+    enemy.style.top = enemy.dataset.y + "px";
+
+    enemy.currentHp = Number(enemy.dataset.hp);
+    enemy.maxHp = enemy.currentHp;
+
+});
+
+
+/* =====================================================
+   TÍNH KHOẢNG CÁCH
+===================================================== */
+
+function distanceToEnemy(enemy){
+
+    const ex = parseFloat(enemy.style.left);
+    const ey = parseFloat(enemy.style.top);
+
+    return Math.sqrt(
+        Math.pow(playerX - ex,2) +
+        Math.pow(playerY - ey,2)
+    );
+}
+
+
+/* =====================================================
+   HIỆU ỨNG DAMAGE
+===================================================== */
+
+function showDamage(enemy,amount){
+
+    const d = document.createElement("div");
+
+    d.className = "damage";
+    d.textContent = "-" + amount;
+
+    d.style.left = enemy.style.left;
+    d.style.top = enemy.style.top;
+
+    document.getElementById("map").appendChild(d);
+
+    setTimeout(()=>{
+        d.remove();
+    },800);
+}
+
+
+/* =====================================================
+   ĐÁNH THƯỜNG
+   NHẤP CHUỘT = ĐÁNH
+===================================================== */
+
+document.getElementById("attack")
+.addEventListener("click",attack);
+
+
+function attack(){
+
+    if(isDead) return;
+
+    let hit = false;
+
+    createAttackEffect();
+
+    enemies.forEach(enemy=>{
+
+        if(enemy.classList.contains("dead")) return;
+
+        const distance = distanceToEnemy(enemy);
+
+        if(distance <= 105){
+
+            hit = true;
+
+            const damage = 25 + level * 5;
+
+            damageEnemy(enemy,damage);
+
+        }
+
+    });
+
+    if(!hit){
+
+        showMessage("⚔️ Không có quái vật ở gần!");
+    }
+
+}
+
+
+/* =====================================================
+   HIỆU ỨNG ĐÁNH
+===================================================== */
+
+function createAttackEffect(){
+
+    const effect = document.createElement("div");
+
+    effect.className = "attackEffect";
+
+    effect.style.left = (playerX - 30) + "px";
+    effect.style.top = (playerY - 30) + "px";
+
+    document.getElementById("map").appendChild(effect);
+
+    setTimeout(()=>{
+        effect.remove();
+    },250);
+}
+
+
+/* =====================================================
+   GÂY DAMAGE
+===================================================== */
+
+function damageEnemy(enemy,damage){
+
+    enemy.currentHp -= damage;
+
+    showDamage(enemy,damage);
+
+    const hpPercent =
+        Math.max(0,enemy.currentHp / enemy.maxHp * 100);
+
+    enemy.querySelector(".enemyHp i")
+        .style.width = hpPercent + "%";
+
+    if(enemy.currentHp <= 0){
+
+        killEnemy(enemy);
+
+    }else{
+
+        showMessage("⚔️ Gây " + damage + " sát thương!");
+    }
+
+}
+
+
+/* =====================================================
+   GIẾT QUÁI
+===================================================== */
+
+function killEnemy(enemy){
+
+    enemy.classList.add("dead");
+
+    gainExp(30);
+
+    gold += 10;
+
+    updateHUD();
+
+    showMessage("👹 Đã tiêu diệt quái! +30 EXP +10 vàng");
+
+    setTimeout(()=>{
+
+        enemy.classList.remove("dead");
+
+        enemy.currentHp = enemy.maxHp;
+
+        enemy.querySelector(".enemyHp i")
+            .style.width = "100%";
+
+        const x =
+            150 + Math.random() * 1450;
+
+        const y =
+            100 + Math.random() * 850;
+
+        enemy.style.left = x + "px";
+        enemy.style.top = y + "px";
+
+    },5000);
+
+}
+
+
+/* =====================================================
+   SKILL COOLDOWN
+===================================================== */
+
+let cooldowns = {
+    1:0,
+    2:0,
+    3:0,
+    4:0
+};
+
+
+function useCooldown(id,time){
+
+    if(Date.now() < cooldowns[id]){
+        return false;
+    }
+
+    cooldowns[id] = Date.now() + time * 1000;
+
+    return true;
+}
+
+
+setInterval(()=>{
+
+    for(let i=1;i<=4;i++){
+
+        const skill =
+            document.getElementById("skill"+i);
+
+        const cd =
+            skill.querySelector(".cd");
+
+        const remain =
+            Math.ceil((cooldowns[i]-Date.now())/1000);
+
+        if(remain > 0){
+
+            skill.classList.add("cooldown");
+            cd.textContent = remain + "s";
+
+        }else{
+
+            skill.classList.remove("cooldown");
+            cd.textContent = "";
+
+        }
+
+    }
+
+},200);
+
+
+/* =====================================================
+   SKILL 1
+===================================================== */
+
+function skill1(){
+
+    if(!useCooldown(1,2)) return;
+
+    showMessage("⚔️ Chém mạnh!");
+
+    enemies.forEach(enemy=>{
+
+        if(enemy.classList.contains("dead")) return;
+
+        if(distanceToEnemy(enemy) <= 130){
+
+            damageEnemy(
+                enemy,
+                45 + level * 8
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   SKILL 2
+   HỎA CẦU
+===================================================== */
+
+function skill2(){
+
+    if(!useCooldown(2,6)) return;
+
+    showMessage("🔥 Hỏa cầu!");
+
+    enemies.forEach(enemy=>{
+
+        if(enemy.classList.contains("dead")) return;
+
+        if(distanceToEnemy(enemy) <= 220){
+
+            damageEnemy(
+                enemy,
+                70 + level * 10
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   SKILL 3
+   BĂNG
+===================================================== */
+
+function skill3(){
+
+    if(!useCooldown(3,8)) return;
+
+    showMessage("❄️ Băng kích!");
+
+    enemies.forEach(enemy=>{
+
+        if(enemy.classList.contains("dead")) return;
+
+        if(distanceToEnemy(enemy) <= 180){
+
+            damageEnemy(
+                enemy,
+                55 + level * 7
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   SKILL 4
+   HỒI MÁU
+===================================================== */
+
+function skill4(){
+
+    if(!useCooldown(4,10)) return;
+
+    const heal = 40 + level * 5;
+
+    hp = Math.min(maxHp,hp + heal);
+
+    showMessage("💚 Hồi " + heal + " HP!");
+
+    updateHUD();
+
+}
+
+
+/* =====================================================
+   EXP
+===================================================== */
+
+function gainExp(amount){
+
+    exp += amount;
+
+    let needed = level * 100;
+
+    while(exp >= needed){
+
+        exp -= needed;
+
+        level++;
+
+        maxHp += 20;
+
+        hp = maxHp;
+
+        showMessage(
+            "🎉 LEVEL UP! Bạn đã lên Level " + level
+        );
+
+        needed = level * 100;
+    }
+
+    updateHUD();
+
+}
+
+
+/* =====================================================
+   HUD
+===================================================== */
+
+function updateHUD(){
+
+    document.getElementById("level")
+        .textContent = level;
+
+    document.getElementById("hpText")
+        .textContent = hp;
+
+    document.getElementById("maxHpText")
+        .textContent = maxHp;
+
+    document.getElementById("gold")
+        .textContent = gold;
+
+    const needed = level * 100;
+
+    document.getElementById("expText")
+        .textContent = exp;
+
+    document.getElementById("needText")
+        .textContent = needed;
+
+    document.getElementById("hpBar")
+        .style.width =
+        Math.max(0,hp/maxHp*100) + "%";
+
+    document.getElementById("expBar")
+        .style.width =
+        Math.min(100,exp/needed*100) + "%";
+
+}
+
+
+/* =====================================================
+   THỜI GIAN
+   30 PHÚT THỰC = 1 NGÀY GAME
+===================================================== */
+
+let gameMinutes = 6 * 60;
+let day = 1;
+
+
+/*
+   30 phút = 1800 giây
+   1440 phút game / 1800 giây
+   = 0.8 phút game / giây
+
+   Cứ 1 giây thực tế:
+   game tăng 0.8 phút.
+
+   Vì vậy:
+   30 phút thực = 1 ngày game.
+*/
+
+
+setInterval(()=>{
+
+    gameMinutes += 0.8;
+
+    if(gameMinutes >= 1440){
+
+        gameMinutes -= 1440;
+
+        day++;
+
+        showMessage(
+            "🌅 Ngày " + day + " bắt đầu!"
+        );
+
+    }
+
+    const hour =
+        Math.floor(gameMinutes / 60);
+
+    const minute =
+        Math.floor(gameMinutes % 60);
+
+    document.getElementById("day")
+        .textContent = day;
+
+    document.getElementById("clock")
+        .textContent =
+        String(hour).padStart(2,"0") +
+        ":" +
+        String(minute).padStart(2,"0");
+
+},1000);
+
+
+/* =====================================================
+   QUÁI DI CHUYỂN + TẤN CÔNG
+===================================================== */
+
+setInterval(()=>{
+
+    if(isDead) return;
+
+    enemies.forEach(enemy=>{
+
+        if(enemy.classList.contains("dead")) return;
+
+        let ex =
+            parseFloat(enemy.style.left);
+
+        let ey =
+            parseFloat(enemy.style.top);
+
+        const distance =
+            distanceToEnemy(enemy);
+
+        /*
+           Nếu player ở gần:
+           quái đuổi theo.
+        */
+
+        if(distance < 260 && distance > 55){
+
+            const dx = playerX - ex;
+            const dy = playerY - ey;
+
+            const length =
+                Math.sqrt(dx*dx + dy*dy);
+
+            ex += dx / length * 1.3;
+            ey += dy / length * 1.3;
+
+            ex = Math.max(20,
+                Math.min(mapWidth-60,ex));
+
+            ey = Math.max(20,
+                Math.min(mapHeight-60,ey));
+
+            enemy.style.left = ex + "px";
+            enemy.style.top = ey + "px";
+
+        }
+
+        /*
+           Nếu sát player:
+           gây damage.
+        */
+
+        if(distance < 65){
+
+            hp -= 5;
+
+            showDamage(player,5);
+
+            if(hp <= 0){
+
+                hp = 0;
+
+                die();
+
+            }
+
+            updateHUD();
+
+        }
+
+    });
+
+},1000);
+
+
+/* =====================================================
+   CHẾT
+===================================================== */
+
+function die(){
+
+    if(isDead) return;
+
+    isDead = true;
+
+    document.getElementById("deathScreen")
+        .style.display = "flex";
+
+}
+
+
+/* =====================================================
+   HỒI SINH
+===================================================== */
+
+document.getElementById("respawn")
+.addEventListener("click",()=>{
+
+    if(level > 1){
+
+        level--;
+
+        /*
+           mất 1 level khi chết
+        */
+
+    }
+
+    /*
+       hồi sinh tại Làng Trung Tâm
+    */
+
+    playerX = 875;
+    playerY = 700;
+
+    hp = maxHp;
+
+    isDead = false;
+
+    updatePlayer();
+    updateHUD();
+
+    document.getElementById("deathScreen")
+        .style.display = "none";
+
+    showMessage(
+        "🏠 Bạn đã hồi sinh tại Làng Trung Tâm!"
+    );
+
+});
+
+
+/* =====================================================
+   THÔNG BÁO
+===================================================== */
+
+let messageTimer;
+
+function showMessage(text){
+
+    const message =
+        document.getElementById("message");
+
+    message.textContent = text;
+
+    message.style.display = "block";
+
+    clearTimeout(messageTimer);
+
+    messageTimer = setTimeout(()=>{
+
+        message.style.display = "none";
+
+    },2000);
+
+}
+
+
+/* =====================================================
+   KHỞI ĐỘNG
+===================================================== */
+
+updatePlayer();
+updateHUD();
+
+showMessage(
+    "🏠 Bạn bắt đầu tại Làng Trung Tâm!"
+);
+
+</script>
+
+</body>
+</html>
